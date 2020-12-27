@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.text.DecimalFormat;
 
-public class ReadExcel {
+public class ReadUserExcel {
     public User[] readExcel(InputStream in) {
         User users[] = null;
         try {
@@ -60,7 +60,6 @@ public class ReadExcel {
             case NUMERIC:
                 DecimalFormat df = new DecimalFormat("#");
                 value = df.format(cell.getNumericCellValue());
-                System.out.println("处理后的：");
                 break;
             case FORMULA:
                 value = cell.getCellFormula();

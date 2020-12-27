@@ -1,4 +1,3 @@
-import java.io.File;
 import java.io.InputStream;
 import java.util.Scanner;
 
@@ -16,11 +15,10 @@ public class Test {
 
             System.out.println("你输入的密码是：" + password);
 
-            // File file=new File("C:\\Users\\lenovo\\IdeaProjects\\console\\src\\Test.xlsx");
 
             InputStream in = Class.forName("Test").getResourceAsStream("/users.xlsx");//  /表示的就是classpath
-            ReadExcel readExcel = new ReadExcel();//创建对象
-            User users[] = readExcel.readExcel(in);
+            ReadUserExcel readUserExcel = new ReadUserExcel();//创建对象
+            User users[] = readUserExcel.readExcel(in);
             for (int i = 0; i < users.length; i++) {
                 if (username.equals(users[i].getUsername()) && password.equals(users[i].getPassword())) {
                     System.out.println("登陆成功");
