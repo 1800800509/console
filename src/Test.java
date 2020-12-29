@@ -37,7 +37,7 @@ public class Test {
                     System.out.println("请输入商品ID，把该商品加入购物车");
                     String pId=sc.next();
                     ReadProductExcel readProductExcel1=new ReadProductExcel();
-                    inPro=null;
+                    inPro=null;//输入流重新读取
                     inPro = Class.forName("Test").getResourceAsStream("/Product.xlsx");
                     Product product=readProductExcel.getProductById(pId,inPro);
                     if(product!=null){
