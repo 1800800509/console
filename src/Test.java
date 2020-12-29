@@ -23,15 +23,27 @@ public class Test {
             for (int i = 0; i < users.length; i++) {
                 if (username.equals(users[i].getUsername()) && password.equals(users[i].getPassword())) {
                     ReadProductExcel readProductExcel=new ReadProductExcel();
-                    Product products[]=readProductExcel.readExcel(inPro);
+                    Product products[]=readProductExcel.getAllProduct(inPro);
                     System.out.println("登陆成功");
+                    bool=false;
                     for (Product product:products){
                         System.out.print(product.getID());
                         System.out.print("\t"+product.getName());
                         System.out.print("\t"+product.getPrice());
                         System.out.println("\t"+product.getDesc());
                     }
-                    bool=false;
+                    int count=0;
+                    Product product1[]=new Product[3];
+                    System.out.println("请输入商品ID，把该商品加入购物车");
+                    String pId=sc.next();
+                    ReadProductExcel readProductExcel1=new ReadProductExcel();
+                    inPro=null;
+                    inPro = Class.forName("Test").getResourceAsStream("/Product.xlsx");
+                    Product product=readProductExcel.getProductById(pId,inPro);
+                    if(product!=null){
+                        product1[count++]=product;
+                        System.out.println("找到该商品，已加入购物车");
+                    }
                     break;
                 } else {
                     System.out.println("登录失败");
