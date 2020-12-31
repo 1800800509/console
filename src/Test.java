@@ -43,7 +43,23 @@ public class Test {
                     if(product!=null){
                         product1[count++]=product;
                         System.out.println("找到该商品，已加入购物车");
+                        System.out.println("查看购物车请输入1，继续购物请输入2");
+                        int choose=sc.nextInt();
+                        if (choose==1){
+                            System.out.print(product.getID());
+                            System.out.print("\t"+product.getName());
+                            System.out.print("\t"+product.getPrice());
+                            System.out.println("\t"+product.getDesc());
+                        }else if (choose==2){
+                            System.out.println("请输入商品ID，把该商品加入购物车");
+
+                        }
                     }
+                    /*
+                    1、查看购物车
+                    2、继续购物
+                    */
+
                     break;
                 } else {
                     System.out.println("登录失败");
