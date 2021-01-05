@@ -41,6 +41,15 @@ public class Test {
                             shopping(sc);
                         }else if (choose==4){
                             break;
+                        }else if (choose==3){
+                            float Price=0;
+                            for (int j=0;j<carts.length;j++){
+                                if (carts[j]!=null){
+                                    Price=Price+carts[j].getPrice();
+                                }
+                            }
+                            System.out.println("购买的商品的总价格为："+Price);
+                            break;
                         }
                     }
                     break;
